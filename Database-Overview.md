@@ -9,7 +9,7 @@ querying the *node index*, an neo4j index (see
 [this page](http://docs.neo4j.org/chunked/stable/indexing.html)),
 which allows nodes to be looked up by any of its attributes (e.g.,
 type, id, code). See
-[this page](https://github.com/fabsx00/joern/wiki/Examples#accessing-the-node-index)
+[this page](https://github.com/fabsx00/joern/Examples.md#accessing-the-node-index)
 for examples on using the node index. 
 
 * **File and Directory Nodes (type:File/Directory).** The

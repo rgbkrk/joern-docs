@@ -1,4 +1,5 @@
-This guide will walk you through the steps of installing joern, importing code and accessing the database using Python scripts.
+This guide will walk you through the steps of installing joern,
+importing code and accessing the database using Python scripts.
 
 # Installation
 
@@ -6,7 +7,8 @@ Make sure the following dependencies are installed:
 
 - A Java Virtual Machine 1.7 such as OpenJDK-7's or Oracle's JVM.
 - Neo4J 1.9 community edition: http://www.neo4j.org/download
-- py2neo - a Python library for neo4: http://py2neo.org (Version 1.5. Note that version 1.6 no longer contains the Gremlin module)
+- python-joern: The python interface to joern
+  (https://github.com/fabsx00/python-joern/)
 - Apache Ant build tool (tested with version 1.9.2)
 
 **Please note that joern currently does not build with Java 1.6, e.g.,
@@ -14,15 +16,18 @@ Make sure the following dependencies are installed:
 
 ## Building
 
-To get the most recent version of
-joern, you can clone the git repository and build from source. To do
-so, please install the Apache Ant build tool and a Java 7 SDK first
-and then perform the following steps:
+To get the most recent version of joern, clone the git repository and
+build from source. To do so, please install the Apache Ant build tool
+and a Java 7 SDK first and then perform the following steps:
 
 Clone the git repository and enter the joern directory ($JOERN):
 
       $ git clone https://github.com/fabsx00/joern.git
       $ cd joern
+
+Optionally change to the development branch.
+
+	$ git checkout dev
 
 Download and extract dependencies in the joern directory:
 
@@ -45,7 +50,6 @@ using bash, you can optionally create the following alias in  your
 
 where $JOERN is the directory where you extracted joern.
 
-
 Optionally build auxiliary tools for data flow and interprocedural
 analysis:
 
@@ -54,9 +58,9 @@ analysis:
 
 # Importing and Accessing Code
 
-Once joern has been installed either from source or binary, you can
-begin to import code into the database by simply pointing joern.jar to
-the directory containing the source code:
+Once joern has been installed, you can begin to import code into the
+database by simply pointing joern.jar to the directory containing the
+source code:
 
     $ java -jar $JOERN/bin/joern.jar $CodeDirectory
 
@@ -84,8 +88,8 @@ It is possible to access the graph database directly from your scripts
 by loading the database into memory on script startup. However, it is
 highly recommended to access data via the neo4j server instead. The
 advantage of doing so is that the data is loaded only once for all
-scripts you may want to execute. Furthermore, you can benefit from
-neo4j's caching for increased speed.
+scripts you may want to execute allowing you to benefit from neo4j's
+caching for increased speed.
 
 To install the neo4j server, download version 1.9 from:
 
@@ -122,20 +126,26 @@ Once code has been imported into a Neo4j database, it can be accessed
 using a number of different interfaces and programming languages. One
 of the simplest possibilities is to create a standalone Neo4J server
 instance as described in the previous section and connect to this
-server using the Python library py2neo.
+server using python-joern, the python interface to joern.
 
-To do so, install py2neo as described here: http://book.py2neo.org/en/latest/ 
+To do so, install python-joern using pip:
 
-If you are using Python's pip, the following command will be all you need to execute:
+	$ sudo pip2 install git+git://github.com/fabsx00/python-joern.git
 
-    $ pip install neo4j
 
 Finally, run the following sample Python script, which prints all
 assignments using a gremlin traversal:
 
 ```
-from py2neo import neo4j, gremlin
-graph_db = neo4j.GraphDatabaseService("http://localhost:7474/db/data/")
-	 for assign in gremlin.execute('g.idx("nodeIndex")[[type:"AssignmentExpr"]].code',graph_db):
-	     	    print assign
+from joern.all import JoernSteps
+
+j = JoernSteps()
+j.connectToDatabase()
+
+query = 'g.idx("nodeIndex")[[type:"AssignmentExpr"]].code'
+
+y = j.runGremlinQuery(query)
+for x in y:
+    print x
+
 ```

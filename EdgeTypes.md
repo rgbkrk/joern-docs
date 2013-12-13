@@ -1,0 +1,42 @@
+
+// Directory structure
+
+[DIR] "IS_PARENT_DIR_OF" -> [DIR | FILE]
+[FILE] "IS_FILE_OF" -> [FUNCTION | CLASS | DECL_STMT]
+
+// AST
+
+[FUNCTION] "IS_FUNCTION_OF_AST" -> AST
+[FUNCTION] "IS_FUNCTION_OF_CFG" -> [CFG]
+
+[AST] "IS_AST_OF_AST_ROOT" -> [AST_NODE]
+[AST_NODE] "IS_AST_PARENT" -> [AST_NODE]
+
+// CFG
+
+[CFG] "IS_CFG_OF_CFG_ROOT" -> [BASIC_BLOCK]
+[BASIC_BLOCK] "FLOWS_TO" -> [BASIC_BLOCK]
+[BASIC_BLOCK] "IS_BASIC_BLOCK_OF" -> [AST_NODE]
+
+// Type Info
+
+[CLASS] "IS_CLASS_OF" -> [DECL]
+[DECL_STMT] "DECLARES" -> [DECL]
+
+// ICFG
+
+[ARG] "IS_ARG" -> [PARAM] 
+
+// UDG
+
+[SYMBOL] "DEF" -> [AST_NODE]
+[SYMBOL] "USE" -> [AST_NODE]
+
+(Do we have DEF links from parameters to symbols?)
+
+// DDG
+
+[BASIC_BLOCK] "REACHES" -> [BASIC_BLOCK]
+
+
+

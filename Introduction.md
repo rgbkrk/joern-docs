@@ -25,6 +25,10 @@ Joern currently consists of the following components.
   (joern-steps) for common operations on the data (think of these are
   stored procedures).
 
+* [**joern-tools**](https://github.com/fabsx00/joern-tools/) is a
+  collection of command line tools employing python-joern to allow
+  simple analysis tasks to be performed directly on the shell.
+
 # Technologies
 
 Using joern effectively, requires a good understanding of the

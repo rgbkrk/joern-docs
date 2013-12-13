@@ -1,4 +1,7 @@
 
+Note: Documentation for the development version of joern can be found
+[here](https://github.com/fabsx00/joern-docs/blob/dev/README.md)
+
 * [Introduction](Introduction.md)
 * [Getting Started](Getting-Started.md)
 * [Tutorial](Tutorial.md)

@@ -17,7 +17,8 @@ To build the optimized version of ANTLR4, do the following:
     $ mvn -N install
     $ mvn -DskipTests=true -Dgpg.skip=true -Psonatype-oss-release -Djava6.home=$PATH_TO_JRE install
     
-If the final step gives you a mvn error, try without the ```-Psonatype-oss-release``` flag:
+If the final step gives you an mvn error, building try without the
+```-Psonatype-oss-release``` flag:
 
     $ mvn -DskipTests=true -Dgpg.skip=true -Djava6.home=$PATH_TO_JRE install
 

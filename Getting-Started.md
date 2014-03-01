@@ -31,8 +31,8 @@ Optionally change to the development branch.
 
 Download and extract dependencies in the joern directory:
 
-      $ wget http://user.informatik.uni-goettingen.de/~fyamagu/lib.tar.gz
-      $ tar xfz lib.tar.gz
+      $ wget http://user.informatik.uni-goettingen.de/~fyamagu/lib-dev.tar.gz
+      $ tar xfz lib-dev.tar.gz
 
 You should now have a directory named "lib" in your $JOERN directory,
 which contains all necessary jars.

@@ -214,6 +214,28 @@ however, you want to create a new database, make sure to delete
 \code{.joernIndex} prior to running \code{joern.jar}.
 
 
+\subsection{Tainting Arguments}
+
+Many times, an argument to a library function (e.g., the first
+argument to \code{recv}) is tainted by the library function. There is
+no way to statically determine this when the code of the library
+function is not available. Also, Joern does not perform
+inter-procedural taint-analysis and therefore, by default, symbols
+passed to functions as arguments are considered \emph{used} but not
+\emph{defined}.
+
+To instruct Joern to consider arguments of a function to be tainted by
+calls to that function, you can use the tool
+\code{argumentTainter}. For example, by executing
+
+\begin{verbatim}
+java -jar ./bin/argumentTainter.jar recv 0
+\end{verbatim}
+
+from the Joern root directory, all first arguments to \code{recv} will
+be considered tainted and dependency graphs will be recalculated
+accordingly.
+
 \subsection{Starting the Database Server}
 
 It is possible to access the graph database directly from your scripts

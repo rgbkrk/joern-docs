@@ -18,8 +18,7 @@ In summary, Joern offers the following core features:
 -   **Code Property Graphs.** Joern creates code property graphs from
     the fuzzy parser output and makes and stores them in a Neo4J graph
     database. For background information on code property graphs, we
-    strongly encourage you to read our paper on the
-    topic [@YamGolArpRie14].
+    strongly encourage you to read [our paper on the topic](http://user.informatik.uni-goettingen.de/~fyamagu/pdfs/2014-oakland.pdf).
 
 -   **Extensible Query Language.** Based on the graph traversal language
     Gremlin, Joern offers an extensible query language based on
@@ -599,8 +598,8 @@ Syntax-Only Descriptions
 The file `joernsteps/composition.groovy` offers a number of elementary
 functions to combine other traversals and lookup functions. These
 composition functions allow arbitrary syntax-only descriptions to be
-constructed (see Modeling and Discovering Vulnerabilities with Code
-Property Graphs [@YamGolArpRie14]).
+constructed (see [Modeling and Discovering Vulnerabilities with Code
+Property Graphs](http://user.informatik.uni-goettingen.de/~fyamagu/pdfs/2014-oakland.pdf)).
 
 For example, to select all functions that contain a call to `foo` AND a
 call to `bar`, lookup functions can simply be chained, e.g.,
@@ -623,7 +622,8 @@ Traversing the Symbol Graph
 
 As outlined in the [database overview](#database-overview), the symbols used and defined by
 statements are made explicit in the graph database by adding symbol
-nodes to functions (see Appendix D of  [@YamGolArpRie14]). We provide
+nodes to functions (see Appendix D of [Modeling and Discovering Vulnerabilities with Code
+Property Graphs](http://user.informatik.uni-goettingen.de/~fyamagu/pdfs/2014-oakland.pdf)). We provide
 utility traversals to make use of this in order to determine symbols
 defining variables, and thus simple access to types used by statements
 and expressions. In particular, the file `joernsteps/symbolGraph.groovy`

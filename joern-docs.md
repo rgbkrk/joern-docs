@@ -29,7 +29,7 @@ In summary, Joern offers the following core features:
 
 This document provides the necessary documentation to enable you to use
 Joern in your work. In particular, we cover [installation](#installation) and discuss [how code can be imported and
-retrieved from the database](#importing and accessing code).
+retrieved from the database](#importing-and-accessing-code).
 The [performance section](#performance-tuning) offers tips on performance tuning and is
 considered a must-read if you plan to run queries on large code bases.
 The [database section](#database-overview) gives an overview of the database contents,
@@ -439,7 +439,7 @@ of the graph traversal language [Gremlin](#gremlin-basics) and
 proceed to discuss [how to select start nodes from the node index](#start-node-selection). The remainder of this chapter deals with code
 retrieval based on syntax ([ASTs](#traversing-syntax-trees) and [pure syntax](#syntax-only-descriptions)),
 [taint-style queries](#taint-style-descriptions) and finally, [traversals in
-the function symbol graph](#traversing the symbol graph).
+the function symbol graph](#traversing-the-symbol-graph).
 
 The user-defined traversals presented throughout this chapter are all
 located in the directory `joernsteps` of python-joern. It may be worth
